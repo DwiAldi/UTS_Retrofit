@@ -1,24 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="8dp">
 
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp">
-    <TextView
-        android:id="@+id/tvIdPeminjaman"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:hint="ID Peminjaman"
-        android:layout_alignParentRight="true"
-        android:textSize="15sp"
+        android:layout_margin="10dp"
+        android:padding="16dp">
+        <TextView
+            android:id="@+id/tvIdPeminjaman"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="ID Peminjaman"
+            android:layout_alignParentRight="true"
+            android:textSize="15sp"
         android:textStyle="bold"
         />
         <TextView
-            android:id="@+id/tvIdAnggota"
+            android:id="@+id/tvIdAnggotaPeminjaman"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:hint="Id Anggota"
@@ -26,12 +30,12 @@
             android:textSize="15sp"
             />
         <TextView
-            android:id="@+id/tvIdBuku"
+            android:id="@+id/tvIdBukuPeminjaman"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:hint="Id Buku"
             android:textSize="15sp"
-            android:layout_below="@id/tvIdAnggota"
+            android:layout_below="@id/tvIdAnggotaPeminjaman"
             />
         <TextView
             android:id="@+id/tvTanggalPinjam"
@@ -39,7 +43,7 @@
             android:layout_height="wrap_content"
             android:hint="Tanggal Pinjam"
             android:textSize="15sp"
-            android:layout_below="@id/tvIdBuku"
+            android:layout_below="@id/tvIdBukuPeminjaman"
             />
         <TextView
             android:id="@+id/tvTanggalKembali"
@@ -50,9 +54,5 @@
             android:layout_below="@id/tvTanggalPinjam"
             />
     </RelativeLayout>
-    <View
-        android:background="@color/colorPrimary"
-        android:layout_width="match_parent"
-        android:layout_height="5dp"/>
 
-</LinearLayout>
+</android.support.v7.widget.CardView>

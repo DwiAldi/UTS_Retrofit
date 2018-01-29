@@ -19,7 +19,8 @@ public class PostPutDelAnggota {
     public void setStatus(String status) {
         this.status = status;
     }
-    public String getMessage() {return message;
+    public String getMessage() {
+        return message;
     }
     public void setMessage(String message) {
         this.message = message;
