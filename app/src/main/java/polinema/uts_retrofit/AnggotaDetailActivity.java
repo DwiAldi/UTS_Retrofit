@@ -28,6 +28,7 @@ public class AnggotaDetailActivity extends AppCompatActivity {
 
         mApiInterface = ApiClient.getClient().create(ApiInterface.class);
 
+        //Mengambil data yang diumpankan dari activity sebelumnya, yaitu AnggotaAdapter
         Intent i = getIntent();
         String id = i.getStringExtra("id");
         String nama = i.getStringExtra("nama");
@@ -46,6 +47,7 @@ public class AnggotaDetailActivity extends AppCompatActivity {
         txtNama.setText(nama);
         txtAlamat.setText(alamat);
         txtNoTelp.setText(notelp);
+
 
         btnUpdate.setOnClickListener(new View.OnClickListener() {
             @Override

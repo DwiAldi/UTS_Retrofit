@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">UTS_Retrofit</string>
+    <string name="title_activity_maps">Map</string>
+
+    <string name="versi">Version:  07.18.1.1541118</string>
+    <string name="developer">Developer By Kelompok 7</string>
+    <string name="copyright">This Application Processed Test From Developer</string>
 </resources>

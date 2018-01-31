@@ -67,19 +67,29 @@ public class AnggotaActivity extends AppCompatActivity{
 
     private void getAnggota() {
 
+        //Memunculkan Dialog
         progressDialog = ProgressDialog.show(this, "Data Anggota", "Memuat Data ...", true, false);
 
         mApiInterface = ApiClient.getClient().create(ApiInterface.class);
 
+        //Memanggil interface dari model getAnggota, dan memberikan value ke anggota call
         Call<GetAnggota> anggotaCall = mApiInterface.getAnggota();
+        //anggotaCall diurutkan nilainya dan akan ditampilkan nanti di dalam fungsi enqueue
         anggotaCall.enqueue(new Callback<GetAnggota>() {
+            //Terdapat 2 respon, OnResponse jika response nya dapat diterima , On failure jika responnya ditolak
             @Override
+            //Jika berhasil maka ...
             public void onResponse(Call<GetAnggota> call, Response<GetAnggota> response) {
                 if (response.isSuccessful()){
+                    //Progress dialog tadi yang sudah berjalan dihentikan terlebih dahulu
                     progressDialog.dismiss();
+                    //value yang kita dapat tadi dari enqueue diambil datanya, dan dimasukkan di list anggotaList
                     List<Anggota> anggotaList = response.body().getListDataAnggotae();
-                    Log.d("Retrofit Get", "Jumlah data pembelian: " +
-                            String.valueOf(anggotaList.size()));
+
+//                    Log.d("Retrofit Get", "Jumlah data pembelian: " +
+//                            String.valueOf(anggotaList.size()));
+
+                    //Setelah data didapatkan, lalu dimasukkan ke dalam adapternya
                     mAdapter = new AnggotaAdapter(anggotaList, AnggotaActivity.this);
                     mRecyclerView.setAdapter(mAdapter);
 //                    mAdapter.setOnClickListener(AnggotaActivity.this);

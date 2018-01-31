@@ -1,14 +1,13 @@
 package polinema.uts_retrofit;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import polinema.uts_retrofit.Model.PostPutDelAnggota;
 import polinema.uts_retrofit.Model.PostPutDelBuku;
 import polinema.uts_retrofit.Rest.ApiClient;
 import polinema.uts_retrofit.Rest.ApiInterface;

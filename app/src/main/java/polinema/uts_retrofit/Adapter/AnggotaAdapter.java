@@ -24,7 +24,9 @@ import polinema.uts_retrofit.R;
  */
 
 public class AnggotaAdapter extends RecyclerView.Adapter<AnggotaAdapter.MyViewHolder> {
+    //Data List dari Anggota (ID, Nama, Alamat, Notelp)
     List<Anggota> mAnggotaList;
+    //Activity yang sedang berlangsung
     Context ctx;
 //    Context mContext;
 //    private OnItemClickListener mListener;
@@ -49,8 +51,11 @@ public class AnggotaAdapter extends RecyclerView.Adapter<AnggotaAdapter.MyViewHo
 
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        //Mendapatkan layout dari listanggota
         View mView = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_anggota,parent,false);
+        //Lalu menyimpan viewHolder
         AnggotaAdapter.MyViewHolder mViewHolder = new AnggotaAdapter.MyViewHolder(mView, ctx, mAnggotaList);
+        //Me-returnkan view holder jika dipanggil
         return mViewHolder;
     }
 
@@ -62,7 +67,7 @@ public class AnggotaAdapter extends RecyclerView.Adapter<AnggotaAdapter.MyViewHo
 //        String alamat = currentItem.getAlamat();
 //        String nomor = currentItem.getNo_telp();
 
-
+        //Mengeset textview dengan data yang didapatkan dari mAnggotaList
         holder.mTextViewIdAnggota.setText("ID Keanggotaan : "+mAnggotaList.get(position).getId_anggota());
         holder.mTextViewNamaAnggota.setText("Nama Anggota : "+mAnggotaList.get(position).getNama());
         holder.mTextViewAlamatAnggota.setText("Alamat Anggota : "+mAnggotaList.get(position).getAlamat());
@@ -207,8 +212,10 @@ public class AnggotaAdapter extends RecyclerView.Adapter<AnggotaAdapter.MyViewHo
             }
         };
         Context ctx;
+        //Terdapat 3 konstruktor, yaitu View , Context , Dan List, lalu diumpankan ke OnCreateViewHolder
         public MyViewHolder(View itemView , Context ctx , List<Anggota> anggotas) {
             super(itemView);
+            //itemView.setOnClickListener(Jika salah satu item diklik, maka terdapat aksi)
             itemView.setOnClickListener(this);
             this.anggotas = anggotas;
             this.ctx = ctx;
@@ -231,10 +238,15 @@ public class AnggotaAdapter extends RecyclerView.Adapter<AnggotaAdapter.MyViewHo
         }
 
         @Override
+        //Jika fungsi onClick dipanggil, maka fungsi dibawah berjalan
         public void onClick(View view) {
+            //Mengambil posisi dari adapter
             int position = getAdapterPosition();
+            //Mengambil data di posisi adapter
             Anggota anggota = this.anggotas.get(position);
+            //Lalu diumpankan ke Anggota Detail Activiy
             Intent i = new Intent(ctx, AnggotaDetailActivity.class);
+            //putExtra adalah data yang akan diumpankan ke activity lain, yaitu activity AnggotaDetailActivity
             i.putExtra("id", anggota.getId_anggota());
             i.putExtra("nama", anggota.getNama());
             i.putExtra("alamat", anggota.getAlamat());
